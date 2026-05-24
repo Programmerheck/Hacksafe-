@@ -1,0 +1,47 @@
+# HackerSafe — free deploy on Render (frontend + backend + free *.onrender.com domains)
+# 1) Create free MongoDB Atlas cluster → copy connection string
+# 2) Render Dashboard → New → Blueprint → connect this repo
+# 3) Set MONGODB_URI when prompted, then deploy
+
+services:
+  - type: web
+    name: hackersafe-api
+    runtime: node
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DISABLE_SYSLOG
+        value: "true"
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: hackersafe-web
+          envVarKey: RENDER_EXTERNAL_URL
+
+  - type: web
+    name: hackersafe-web
+    runtime: node
+    region: oregon
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: hackersafe-api
+          envVarKey: RENDER_EXTERNAL_URL

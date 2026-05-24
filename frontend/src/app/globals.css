@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --background: #05070f;
+  --foreground: #e2e8f0;
+  
+  --cyber-bg: #05070f;
+  --cyber-card: rgba(10, 15, 30, 0.7);
+  --cyber-border: #151e3d;
+  --cyber-cyan: #00f5ff;
+  --cyber-emerald: #10b981;
+  --cyber-rose: #f43f5e;
+  --cyber-orange: #f59e0b;
+}
+
+@theme {
+  --color-cyber-bg: var(--cyber-bg);
+  --color-cyber-card: var(--cyber-card);
+  --color-cyber-border: var(--cyber-border);
+  --color-cyber-cyan: var(--cyber-cyan);
+  --color-cyber-emerald: var(--cyber-emerald);
+  --color-cyber-rose: var(--cyber-rose);
+  --color-cyber-orange: var(--cyber-orange);
+  
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-cyber-glow: cyber-pulse 3s infinite;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes cyber-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(0, 245, 255, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(0, 245, 255, 0.4); }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #151e3d;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f5ff;
+}
+
+/* Hacker SIEM Utilities */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 245, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.015) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.cyber-glow {
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.15);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+}
+
+.cyber-glow-emerald {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.cyber-glow-rose {
+  box-shadow: 0 0 15px rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.cyber-glass {
+  background: rgba(10, 15, 30, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(21, 30, 61, 0.8);
+}
+
+/* Monospace scanline layout overlay for authentic SIEM consoles */
+.scanline-overlay::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 99;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}

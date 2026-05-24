@@ -21,7 +21,9 @@ const connectDB = async () => {
 
     try {
       const { MongoMemoryServer } = require('mongodb-memory-server');
-      memoryServer = await MongoMemoryServer.create();
+      memoryServer = await MongoMemoryServer.create({
+        instance: { launchTimeout: 120000 },
+      });
       const memoryUri = memoryServer.getUri('hackersafe');
       const conn = await mongoose.connect(memoryUri);
       console.log(`[DATABASE] In-memory MongoDB ready at ${conn.connection.host}`);

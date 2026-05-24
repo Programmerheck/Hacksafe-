@@ -27,17 +27,29 @@ mongodb+srv://USER:PASSWORD@cluster0.xxxxx.mongodb.net/hackersafe?retryWrites=tr
 
 ---
 
-## Step 2 — GitHub par code push
+## Step 2 — GitHub repo
 
-Repo GitHub par honi chahiye (public ya private).
+**Your repo:** [https://github.com/Programmerheck/Hacksafe-](https://github.com/Programmerheck/Hacksafe-)
+
+Latest local changes push karo:
+
+```bash
+git add .
+git commit -m "Deploy ready"
+git push origin main
+```
 
 ---
 
 ## Step 3 — Render par deploy (dono services ek saath)
 
+**Quick:** [Deploy to Render (this repo)](https://render.com/deploy?repo=https://github.com/Programmerheck/Hacksafe-)
+
+Ya manually:
+
 1. [dashboard.render.com](https://dashboard.render.com) → sign up (free)
 2. **New +** → **Blueprint**
-3. GitHub repo connect karo → `render.yaml` auto-detect
+3. Repo **Programmerheck/Hacksafe-** select karo → `render.yaml` auto-detect
 4. **`MONGODB_URI`** paste karo (Atlas string)
 5. **Apply** → deploy start (10–15 min pehli baar)
 

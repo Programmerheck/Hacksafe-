@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useAuth } from './useAuth';
-import { apiUrl, wsUrl } from '../lib/api';
+import { apiUrl, getWsUrl } from '../lib/api';
 
 interface Log {
   _id: string;
@@ -84,7 +84,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     fetchHistory();
 
     // Setup native WebSocket connection
-    const socketUrl = wsUrl;
+    const socketUrl = getWsUrl();
     console.log('[WEBSOCKET] Connecting to SIEM live telemetry stream...');
     const ws = new WebSocket(socketUrl);
 

@@ -2,6 +2,17 @@
 
 HackerSafe is a modern, enterprise-grade, Splunk-style SIEM (Security Information and Event Management) platform featuring a hacker-style dark cockpit UI, real-time log ingestion over UDP Syslog ports, REST API endpoints, real-time WebSockets streaming, and deep pattern threat analytics.
 
+## 🔗 Links
+
+| | URL |
+|---|-----|
+| **GitHub** | [github.com/Programmerheck/Hacksafe-](https://github.com/Programmerheck/Hacksafe-) |
+| **Live dashboard** | [hackersafe-web.onrender.com](https://hackersafe-web.onrender.com) *(after [Render deploy](https://render.com/deploy?repo=https://github.com/Programmerheck/Hacksafe-))* |
+| **API** | [hackersafe-api.onrender.com](https://hackersafe-api.onrender.com) |
+| **All share links** | [SHARE-LINKS.md](./SHARE-LINKS.md) |
+
+**Demo login:** `admin@hackersafe.com` / `adminpassword123`
+
 ---
 
 ## 🚀 Key Features
